@@ -1,12 +1,13 @@
 [gd_scene load_steps=2 format=3 uid="uid://bk3nrnqrwiuyn"]
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_60hyn"]
+[ext_resource type="Texture2D" uid="uid://dbm5s1ys7j1w2" path="res://icon.svg" id="1_63n36"]
 
-[node name="Node3D" type="Node3D"]
+[node name="Node3D" type="Node2D"]
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.97979)
+[node name="Parallax2D" type="Parallax2D" parent="."]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("CapsuleMesh_60hyn")
-skeleton = NodePath("../Camera3D")
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D"]
+texture = ExtResource("1_63n36")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position_smoothing_enabled = true
