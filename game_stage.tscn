@@ -1,18 +1,38 @@
-[gd_scene load_steps=4 format=3 uid="uid://bk3nrnqrwiuyn"]
+[gd_scene load_steps=5 format=3 uid="uid://bk3nrnqrwiuyn"]
 
-[ext_resource type="Texture2D" uid="uid://dbm5s1ys7j1w2" path="res://icon.svg" id="1_63n36"]
+[ext_resource type="Script" path="res://src/game_stage.gd" id="1_p5hh2"]
 [ext_resource type="PackedScene" uid="uid://dq2meide5oo8r" path="res://src/building/building.tscn" id="2_6ic3h"]
 [ext_resource type="PackedScene" uid="uid://c0c2agsmpxh27" path="res://src/camera/game_camera.tscn" id="2_8dd5b"]
+[ext_resource type="PackedScene" uid="uid://1tnfphburlo7" path="res://src/ui/add_floor_container.tscn" id="4_omg2c"]
 
-[node name="Node3D" type="Node2D"]
+[node name="Game" type="Node2D"]
+script = ExtResource("1_p5hh2")
 
 [node name="Parallax2D" type="Parallax2D" parent="."]
-
-[node name="Sprite2D" type="Sprite2D" parent="Parallax2D"]
-texture = ExtResource("1_63n36")
 
 [node name="GameCamera" parent="." instance=ExtResource("2_8dd5b")]
 position = Vector2(215, 111)
 
 [node name="Building" parent="." instance=ExtResource("2_6ic3h")]
 position = Vector2(207, 373)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="AddFloorContainer" parent="CanvasLayer/Control" instance=ExtResource("4_omg2c")]
+layout_mode = 1
+offset_left = -132.5
+offset_top = -40.5
+offset_right = 132.5
+offset_bottom = 40.5
+
+[connection signal="query_add_floor" from="Building" to="." method="_on_building_query_add_floor"]
+[connection signal="confirm_add_floor" from="CanvasLayer/Control/AddFloorContainer" to="Building" method="add_floor_by_coord"]

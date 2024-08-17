@@ -1,9 +1,22 @@
-[gd_scene load_steps=2 format=3 uid="uid://caxhr3w1ks1yl"]
+[gd_scene load_steps=4 format=3 uid="uid://caxhr3w1ks1yl"]
 
+[ext_resource type="Script" path="res://src/floor/floor_unit.gd" id="1_ahtxq"]
 [ext_resource type="Texture2D" uid="uid://b5t64y5yqaufs" path="res://src/floor/floor_unit.png" id="1_lysu2"]
 
-[node name="StoryUnit" type="Node2D"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tj17y"]
+radius = 48.0
+height = 118.0
 
-[node name="StoryUnit" type="Sprite2D" parent="."]
+[node name="FloorUnit" type="Area2D"]
+script = ExtResource("1_ahtxq")
+
+[node name="FloorUnit" type="Sprite2D" parent="."]
 texture = ExtResource("1_lysu2")
 centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(16, 36)
+shape = SubResource("CapsuleShape2D_tj17y")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]

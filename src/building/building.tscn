@@ -1,9 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://dq2meide5oo8r"]
+[gd_scene load_steps=4 format=3 uid="uid://dq2meide5oo8r"]
 
 [ext_resource type="Script" path="res://src/building/building.gd" id="1_ilp16"]
 [ext_resource type="PackedScene" uid="uid://c6qs0eolhnulb" path="res://src/floor/floor.tscn" id="2_bx7en"]
+[ext_resource type="PackedScene" uid="uid://cfmp8yur4aiar" path="res://src/floor/add_unit_button.tscn" id="3_jd121"]
 
 [node name="Building" type="Node2D"]
 script = ExtResource("1_ilp16")
 
-[node name="GroundFloor" parent="." instance=ExtResource("2_bx7en")]
+[node name="Floors" type="Node2D" parent="."]
+
+[node name="GroundFloor" parent="Floors" instance=ExtResource("2_bx7en")]
+
+[node name="AddUnitButton" parent="." instance=ExtResource("3_jd121")]
+offset_left = -40.0
+offset_top = 37.0
+offset_right = 0.0
+offset_bottom = 77.0
+
+[connection signal="place_room_at" from="AddUnitButton" to="." method="_on_add_unit_button_place_room_at"]

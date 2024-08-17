@@ -4,6 +4,7 @@ extends Node
 var properties := {}
 
 signal property_changed(property_name:String, old_value, new_value)
+signal room_added(at_coord:Vector2)
 
 func of(property_name: String, default=false):
 	if not properties.has(property_name):

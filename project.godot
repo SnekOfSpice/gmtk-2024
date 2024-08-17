@@ -21,6 +21,10 @@ Data="*res://autoload/data.tscn"
 CONST="*res://autoload/const.tscn"
 MapMath="*res://autoload/map_math.tscn"
 
+[global_group]
+
+hover_button=""
+
 [input]
 
 ui_left={
