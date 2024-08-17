@@ -9,7 +9,11 @@ enum RoomType {
 	Storeroom,
 	Office,
 	Fitnessroom,
-	Garage
+	Garage,
+	ChildRoom,
+	Library,
+	GamingRoom,
+	PleasureRoom,
 }
 
 const ROOM_SIZES := {
@@ -22,7 +26,46 @@ const ROOM_SIZES := {
 	RoomType.Office : 1,
 	RoomType.Fitnessroom : 2,
 	RoomType.Garage : 2,
+	RoomType.ChildRoom : 1,
+	RoomType.Library : 1,
+	RoomType.GamingRoom : 1,
+	RoomType.PleasureRoom : 1,
 }
+
+enum HouseholdArchetype {
+	StudentFlatShare,
+	Apprentice,
+	OrdinaryFamily,
+	SingleParent,
+	YoungCouple,
+	Workaholic,
+	Polycule,
+	ElderlyCouple,
+	BigFamily,
+	Widow,
+	CEO,
+	InfluencerCouple,
+	Kevin,
+	DrugDealer,
+	MarathonCouple,
+}
+#const HouseholdArchetype {
+	#StudentFlatShare,
+	#Apprentice,
+	#OrdinaryFamily,
+	#SingleParent,
+	#YoungCouple,
+	#Workaholic,
+	#Polycule,
+	#ElderlyCouple,
+	#BigFamily,
+	#Widow,
+	#CEO,
+	#InfluencerCouple,
+	#Kevin,
+	#DrugDealer,
+	#MarathonCouple,
+#}
 
 const REVEAL_FADE_TIME := 1.0
 

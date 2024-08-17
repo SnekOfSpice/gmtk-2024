@@ -8,29 +8,39 @@ var drag_offset:Vector2
 
 var floor := 0
 
+const sprite_root := "res://src/rooms/room_sprites/spr_room-"
+
 @export var room_type: CONST.RoomType
 
 func set_room_type(value):
 	room_type = value
 	match value:
 		CONST.RoomType.Kitchen:
-			$Sprite2D.texture = load("res://src/floor/kitchen.png")
+			$Sprite2D.texture = load(str(sprite_root, "kitchenMedium01.png"))
 		CONST.RoomType.Bathroom:
-			$Sprite2D.texture = load("res://src/floor/bathroom.png")
+			$Sprite2D.texture = load(str(sprite_root, "bathSmall01.png"))
 		CONST.RoomType.Livingroom:
-			$Sprite2D.texture = load("res://src/floor/livingroom.png")
+			$Sprite2D.texture = load(str(sprite_root, "livingroomMedium01.png"))
 		CONST.RoomType.Bedroom:
-			$Sprite2D.texture = load("res://src/floor/bedroom.png")
+			$Sprite2D.texture = load(str(sprite_root, "bedroomMedium01.png"))
 		CONST.RoomType.Hallway:
-			$Sprite2D.texture = load("res://src/floor/hallway.png")
+			$Sprite2D.texture = load(str(sprite_root, "hallwaySmall01.png"))
 		CONST.RoomType.Storeroom:
-			$Sprite2D.texture = load("res://src/floor/storeroom.png")
+			$Sprite2D.texture = load(str(sprite_root, "storageSmall01.png"))
 		CONST.RoomType.Office:
 			$Sprite2D.texture = load("res://src/floor/office.png")
 		CONST.RoomType.Fitnessroom:
 			$Sprite2D.texture = load("res://src/floor/fitness.png")
 		CONST.RoomType.Garage:
 			$Sprite2D.texture = load("res://src/floor/garage.png")
+		CONST.RoomType.ChildRoom:
+			$Sprite2D.texture = load("res://src/floor/childroom.png")
+		CONST.RoomType.Library:
+			$Sprite2D.texture = load("res://src/floor/library.png")
+		CONST.RoomType.GamingRoom:
+			$Sprite2D.texture = load("res://src/floor/gaming.png")
+		CONST.RoomType.PleasureRoom:
+			$Sprite2D.texture = load("res://src/floor/pleasure.png")
 	
 	var size = CONST.ROOM_SIZES.get(room_type)
 	if size == 1:

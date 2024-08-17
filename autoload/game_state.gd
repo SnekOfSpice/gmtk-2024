@@ -18,6 +18,9 @@ func set_drag_target(target: FloorUnit):
 	if dragged_room:
 		dragged_room.set_dropability(can_room_fit_drag_target(dragged_room) and drag_target != null)
 
+
+#func roll_tenant() -> CONST
+
 func can_room_fit_drag_target(room:Room) -> bool:
 	if not drag_target:
 		print("c")

@@ -4,6 +4,24 @@ class_name Building
 @onready var ground_floor : Floor = find_child("GroundFloor")
 @onready var add_unit_button : TextureButton = $AddUnitButton
 
+
+@export_group("Households")
+@export var student_flat_share:Resource
+@export var apprentice:Resource
+@export var ordinary_family:Resource
+@export var single_parent:Resource
+@export var young_couple:Resource
+@export var workaholic:Resource
+@export var polycule:Resource
+@export var elderly_couple:Resource
+@export var big_family:Resource
+@export var widow:Resource
+@export var ceo:Resource
+@export var influencer_couple:Resource
+@export var kevin:Resource
+@export var drug_dealer:Resource
+@export var marathon_couple :Resource
+
 signal query_add_floor(coord:Vector2)
 
 func _ready() -> void:
@@ -20,6 +38,34 @@ func _process(delta: float) -> void:
 	var button_coord = add_unit_button.get_current_coord()
 	add_unit_button.visible = can_coord_be_added(button_coord)
 	
+
+func _input(event: InputEvent) -> void:
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+			print(get_flats())
+
+func get_flats() -> Array:
+	var flats := []
+	
+	for floor : Floor in $Floors.get_children():
+		var coords := floor.get_sorted_coords()
+		var handled_rooms := [] # track separately bc of multi-slot rooms
+		var flats_on_floor := []
+		
+		var flat_sequence := []
+		for coord in coords:
+			var is_empty = not floor.is_coord_occupied(coord)
+			if is_empty:
+				if not flat_sequence.is_empty():
+					flats.append(flat_sequence.duplicate())
+					flat_sequence.clear()
+				continue
+			flat_sequence.append(coord)
+		if not flat_sequence.is_empty():
+			flats.append(flat_sequence.duplicate())
+	
+	return flats
+
 func has_floor(index: int) -> bool:
 	return get_floor(index) != null
 

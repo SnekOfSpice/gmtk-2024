@@ -16,6 +16,31 @@ var units_by_coord := {}
 func update_walls():
 	pass
 
+func get_sorted_rooms() -> Array:
+	var keys := rooms_by_coord.keys().duplicate()
+	keys.sort_custom(sort_coords)
+	
+	var result := []
+	for key in keys:
+		result.append(rooms_by_coord.get(key))
+	
+	return result
+func get_sorted_units() -> Array:
+	var keys := units_by_coord.keys().duplicate()
+	keys.sort_custom(sort_coords)
+	
+	var result := []
+	for key in keys:
+		result.append(units_by_coord.get(key))
+	
+	return result
+func get_sorted_coords() -> Array:
+	var keys := units_by_coord.keys().duplicate()
+	keys.sort_custom(sort_coords)
+	return keys
+func sort_coords(coord_a: Vector2, coord_b: Vector2):
+	return coord_a.x < coord_b.x
+
 func _ready():
 	mouse_entered.connect(on_mouse_entered)
 	mouse_exited.connect(on_mouse_exited)
@@ -71,10 +96,10 @@ func add_room(coord: Vector2, room_type:CONST.RoomType):
 	for i in size:
 		rooms_by_coord[Vector2(coord.x + i, coord.y)] = room
 
-func is_coord_occupied(coord:Vector2):
+func is_coord_occupied(coord:Vector2, non_existent_as_occupied:=true):
 	if not units_by_coord.has(coord):
 		prints("no ", coord, " in ", units_by_coord)
-		return true
+		return non_existent_as_occupied
 	
 	return rooms_by_coord.has(coord)
 

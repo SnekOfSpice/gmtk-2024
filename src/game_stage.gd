@@ -2,6 +2,14 @@ extends Node2D
 
 @onready var add_floor_container : CenterContainer = find_child("AddFloorContainer")
 
+func _ready() -> void:
+	pass
+
+func start_month():
+	pass
+	# get empty flats
+	# generate tenants for all of them
+
 
 func _on_building_query_add_floor(coord: Vector2) -> void:
 	add_floor_container.show_menu(coord)
