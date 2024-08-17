@@ -21,6 +21,7 @@ func generate(rooms := 10, building_width := 6):
 	
 	var floor := preload("res://src/floor/floor.tscn").instantiate()
 	floor.offset = global_position
+	floor.player_owned = false
 	$Floors.add_child(floor)
 	for i in building_width:
 		floor.add_unit_at(Vector2(i, 0))
@@ -44,6 +45,7 @@ func generate(rooms := 10, building_width := 6):
 		floor = preload("res://src/floor/floor.tscn").instantiate()
 		$Floors.add_child(floor)
 		floor.offset = global_position
+		floor.player_owned = false
 		for i in building_width:
 			floor.add_unit_at(Vector2(i, -floor_index))
 		#floor.position.y = floor_index * CONST.FLOOR_UNIT_HEIGHT

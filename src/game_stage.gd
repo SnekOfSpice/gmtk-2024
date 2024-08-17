@@ -7,5 +7,8 @@ func _on_building_query_add_floor(coord: Vector2) -> void:
 	add_floor_container.show_menu(coord)
 
 
-func _on_add_floor_container_confirm_add_floor(coord: Vector2) -> void:
-	pass # Replace with function body.
+func _on_finish_stage_button_pressed() -> void:
+	if GameState.state == GameState.State.Managing:
+		GameState.set_state(GameState.State.Building)
+	elif GameState.state == GameState.State.Building:
+		GameState.set_state(GameState.State.Managing)

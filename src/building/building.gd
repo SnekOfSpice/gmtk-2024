@@ -1,4 +1,5 @@
 extends Node2D
+class_name Building
 
 @onready var ground_floor : Floor = find_child("GroundFloor")
 @onready var add_unit_button : TextureButton = $AddUnitButton
@@ -6,9 +7,11 @@ extends Node2D
 signal query_add_floor(coord:Vector2)
 
 func _ready() -> void:
-	ground_floor.position = CONST.BUILDING_ORIGIN_COORD
+	GameState.building = self
+	ground_floor.player_owned = true
 	for i in 6:
 		ground_floor.add_unit_at(Vector2(i, 0))
+
 
 func _process(delta: float) -> void:
 	var target_pos = get_local_mouse_position() - (add_unit_button.size * 0.25)
@@ -16,7 +19,7 @@ func _process(delta: float) -> void:
 	
 	var button_coord = add_unit_button.get_current_coord()
 	add_unit_button.visible = can_coord_be_added(button_coord)
-
+	
 func has_floor(index: int) -> bool:
 	return get_floor(index) != null
 
@@ -32,8 +35,9 @@ func add_floor_by_coord(coord: Vector2):
 func add_floor(horizontal_index:int):
 	var floor_count = $Floors.get_child_count()
 	var floor = preload("res://src/floor/floor.tscn").instantiate()
+	floor.player_owned = true
 	$Floors.add_child(floor)
-	floor.position = MapMath.coord_to_pos(Vector2(horizontal_index, -floor_count))
+	floor.position = MapMath.coord_to_pos(Vector2(horizontal_index, -floor_count))# - global_position
 	floor.add_unit_at(Vector2(horizontal_index, -floor_count))
 
 func is_coord_free(coord: Vector2) -> bool:

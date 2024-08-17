@@ -8,6 +8,10 @@ class_name Floor
 @onready var rooms := $Rooms
 
 var offset := Vector2.ZERO
+var player_owned : bool
+
+var rooms_by_coord := {}
+var units_by_coord := {}
 
 func update_walls():
 	pass
@@ -33,8 +37,11 @@ func add_unit_at(coord:Vector2):
 	var target_pos = MapMath.coord_to_pos(coord)
 	var unit = preload("res://src/floor/floor_unit.tscn").instantiate()
 	$Units.add_child(unit)
+	unit.floor = get_index()
 	unit.global_position = target_pos + offset
 	unit.h_index = coord.x
+	unit.player_owned = player_owned
+	units_by_coord[coord] = unit
 
 func on_mouse_entered():
 	if Data.of("global.permanent_reveal"):
@@ -55,9 +62,21 @@ func on_mouse_exited():
 func add_room(coord: Vector2, room_type:CONST.RoomType):
 	var room = preload("res://src/rooms/room.tscn").instantiate()
 	$Rooms.add_child(room)
-	
+	room.set_player_owned(player_owned)
 	room.global_position = MapMath.coord_to_pos(coord) + offset
-	room.room_type = room_type
+	room.set_room_type(room_type)
+	room.floor = get_index()
+	
+	var size = CONST.ROOM_SIZES.get(room.room_type)
+	for i in size:
+		rooms_by_coord[Vector2(coord.x + i, coord.y)] = room
+
+func is_coord_occupied(coord:Vector2):
+	if not units_by_coord.has(coord):
+		prints("no ", coord, " in ", units_by_coord)
+		return true
+	
+	return rooms_by_coord.has(coord)
 
 func build_front_wall():
 	pass

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bk3nrnqrwiuyn"]
+[gd_scene load_steps=13 format=3 uid="uid://bk3nrnqrwiuyn"]
 
 [ext_resource type="Script" path="res://src/game_stage.gd" id="1_p5hh2"]
 [ext_resource type="PackedScene" uid="uid://dq2meide5oo8r" path="res://src/building/building.tscn" id="2_6ic3h"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://ol513ocliyg8" path="res://sprites/background/Background.png" id="3_rhmyq"]
 [ext_resource type="PackedScene" uid="uid://1tnfphburlo7" path="res://src/ui/add_floor_container.tscn" id="4_omg2c"]
 [ext_resource type="Texture2D" uid="uid://c3rwsfkemts2b" path="res://sprites/background/Ground.png" id="4_ylpm6"]
+[ext_resource type="PackedScene" uid="uid://dk1v0umuvbrtu" path="res://src/building/harvestable_building.tscn" id="8_d4048"]
 
 [sub_resource type="Gradient" id="Gradient_rumqs"]
 offsets = PackedFloat32Array(0)
@@ -28,6 +29,7 @@ fill_from = Vector2(1, 1)
 script = ExtResource("1_p5hh2")
 
 [node name="Background" type="Node2D" parent="."]
+position = Vector2(0, -586)
 
 [node name="Sky" type="Parallax2D" parent="Background"]
 scroll_scale = Vector2(0.1, 1)
@@ -88,7 +90,7 @@ angle_max = 10.0
 position = Vector2(215, 111)
 
 [node name="Building" parent="." instance=ExtResource("2_6ic3h")]
-position = Vector2(207, 373)
+position = Vector2(143, -29)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -108,5 +110,23 @@ offset_top = -40.5
 offset_right = 132.5
 offset_bottom = 40.5
 
+[node name="FinishStageButton" type="Button" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -85.0
+offset_top = -31.0
+grow_horizontal = 0
+grow_vertical = 0
+focus_mode = 0
+text = "NEXT DAY"
+
+[node name="HarvestableBuilding" parent="." instance=ExtResource("8_d4048")]
+position = Vector2(521, -29)
+
 [connection signal="query_add_floor" from="Building" to="." method="_on_building_query_add_floor"]
 [connection signal="confirm_add_floor" from="CanvasLayer/Control/AddFloorContainer" to="Building" method="add_floor_by_coord"]
+[connection signal="pressed" from="CanvasLayer/Control/FinishStageButton" to="." method="_on_finish_stage_button_pressed"]

@@ -1,7 +1,6 @@
 extends Camera2D
 
 @onready var target_zoom := Vector2.ONE
-@onready var target_position := position
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action("zoom_in"):
@@ -24,4 +23,4 @@ func _process(delta):
 		position.x -= CONST.CAMERA_MOVE_STEP * delta / zoom.x
 	if Input.is_action_pressed("ui_right"):
 		position.x += CONST.CAMERA_MOVE_STEP * delta / zoom.x
-	pass
+	position.y = min(position.y, 10 / CONST.ZOOM_MIN)
