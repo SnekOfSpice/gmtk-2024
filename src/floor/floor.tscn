@@ -10,12 +10,10 @@ script = ExtResource("1_ipi7l")
 
 [node name="Units" type="Node2D" parent="."]
 
-[node name="RoomVisuals" type="Node2D" parent="."]
+[node name="Rooms" type="Node2D" parent="."]
 
 [node name="FrontWall" type="Node2D" parent="."]
 
 [node name="HoverArea" type="CollisionShape2D" parent="."]
 position = Vector2(60, 25)
 shape = SubResource("RectangleShape2D_h864d")
-
-[node name="Buttons" type="Node2D" parent="."]
