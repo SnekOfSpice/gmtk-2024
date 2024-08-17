@@ -1,37 +1,42 @@
-[gd_scene load_steps=17 format=3 uid="uid://bk3nrnqrwiuyn"]
+[gd_scene load_steps=18 format=3 uid="uid://bk3nrnqrwiuyn"]
 
 [ext_resource type="Script" path="res://src/game_stage.gd" id="1_p5hh2"]
 [ext_resource type="PackedScene" uid="uid://dq2meide5oo8r" path="res://src/building/building.tscn" id="2_6ic3h"]
 [ext_resource type="PackedScene" uid="uid://c0c2agsmpxh27" path="res://src/camera/game_camera.tscn" id="2_8dd5b"]
-[ext_resource type="Texture2D" uid="uid://bndw54v2j0x4o" path="res://sprites/background/enviroment/spr_enviroment-HG4.png" id="2_caaqb"]
-[ext_resource type="Texture2D" uid="uid://1qrspg4g0tjn" path="res://sprites/background/enviroment/spr_enviroment-HG3.png" id="3_7xw7m"]
-[ext_resource type="Texture2D" uid="uid://jyfcetcyslkp" path="res://sprites/background/enviroment/spr_enviroment-HG2.png" id="4_3onsa"]
+[ext_resource type="Texture2D" uid="uid://bndw54v2j0x4o" path="res://sprites/background/enviroment/spr_enviroment-HG4.png" id="2_ehhv2"]
+[ext_resource type="Texture2D" uid="uid://1qrspg4g0tjn" path="res://sprites/background/enviroment/spr_enviroment-HG3.png" id="3_n851i"]
 [ext_resource type="PackedScene" uid="uid://1tnfphburlo7" path="res://src/ui/add_floor_container.tscn" id="4_omg2c"]
-[ext_resource type="Texture2D" uid="uid://ts16nkjdgn43" path="res://sprites/background/enviroment/spr_enviroment-HG1.png" id="5_ildn5"]
-[ext_resource type="Texture2D" uid="uid://ukk6w63jnray" path="res://sprites/background/enviroment/spr_enviroment-floor.png" id="6_4nxcm"]
-[ext_resource type="Texture2D" uid="uid://b80v1e1peqaia" path="res://sprites/background/enviroment/spr_enviroment-VG.png" id="7_vmsjl"]
+[ext_resource type="Texture2D" uid="uid://jyfcetcyslkp" path="res://sprites/background/enviroment/spr_enviroment-HG2.png" id="4_tgj48"]
+[ext_resource type="Texture2D" uid="uid://ts16nkjdgn43" path="res://sprites/background/enviroment/spr_enviroment-HG1.png" id="5_lhhng"]
+[ext_resource type="Texture2D" uid="uid://ukk6w63jnray" path="res://sprites/background/enviroment/spr_enviroment-floor.png" id="6_57kyt"]
+[ext_resource type="Texture2D" uid="uid://b80v1e1peqaia" path="res://sprites/background/enviroment/spr_enviroment-VG.png" id="7_v8uqo"]
+[ext_resource type="PackedScene" uid="uid://dk1v0umuvbrtu" path="res://src/building/harvestable_building.tscn" id="8_d4048"]
 
-[sub_resource type="Gradient" id="Gradient_gc1xi"]
-offsets = PackedFloat32Array(0.00721154)
+[sub_resource type="Gradient" id="Gradient_b53k7"]
+offsets = PackedFloat32Array(0)
 colors = PackedColorArray(0.360784, 0.384314, 0.431373, 1)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_kdrq4"]
-gradient = SubResource("Gradient_gc1xi")
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_hg8x8"]
+gradient = SubResource("Gradient_b53k7")
+width = 1024
+height = 4000
 
-[sub_resource type="Gradient" id="Gradient_lx435"]
+[sub_resource type="Gradient" id="Gradient_27qcy"]
 offsets = PackedFloat32Array(0)
 colors = PackedColorArray(0.0509804, 0.0509804, 0.0509804, 1)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_2do5g"]
-gradient = SubResource("Gradient_lx435")
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_gwuf7"]
+gradient = SubResource("Gradient_27qcy")
+width = 1024
+height = 2000
 
 [sub_resource type="Gradient" id="Gradient_7ub7g"]
 colors = PackedColorArray(0.372549, 0.470588, 0.509804, 1, 0.6, 0.894118, 0.439216, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_du4d6"]
 gradient = SubResource("Gradient_7ub7g")
-width = 2
-height = 30
+width = 5
+height = 50
 fill_from = Vector2(1, 1)
 
 [node name="Game" type="Node2D"]
@@ -42,12 +47,11 @@ script = ExtResource("1_p5hh2")
 [node name="Sky2" type="Parallax2D" parent="Background"]
 scroll_scale = Vector2(0.1, 1)
 repeat_size = Vector2(1024, 0)
-repeat_times = 5
+repeat_times = 7
 
 [node name="Sprite2D" type="Sprite2D" parent="Background/Sky2"]
-position = Vector2(462.5, -1589)
-scale = Vector2(16.0156, 41.75)
-texture = SubResource("GradientTexture2D_kdrq4")
+position = Vector2(0, -2200)
+texture = SubResource("GradientTexture2D_hg8x8")
 
 [node name="Sky" type="Parallax2D" parent="Background"]
 scroll_scale = Vector2(0.1, 1)
@@ -55,7 +59,7 @@ repeat_size = Vector2(1024, 0)
 repeat_times = 7
 
 [node name="Sprite2D" type="Sprite2D" parent="Background/Sky"]
-texture = ExtResource("2_caaqb")
+texture = ExtResource("2_ehhv2")
 
 [node name="BG3" type="Parallax2D" parent="Background"]
 scroll_scale = Vector2(0.5, 1)
@@ -63,52 +67,52 @@ repeat_size = Vector2(1024, 0)
 repeat_times = 7
 
 [node name="Sprite2D" type="Sprite2D" parent="Background/BG3"]
-texture = ExtResource("3_7xw7m")
+texture = ExtResource("3_n851i")
 
 [node name="BG2" type="Parallax2D" parent="Background"]
+scroll_scale = Vector2(0.5, 1)
 repeat_size = Vector2(1024, 0)
 repeat_times = 7
 
 [node name="Sprite2D" type="Sprite2D" parent="Background/BG2"]
-texture = ExtResource("4_3onsa")
+texture = ExtResource("4_tgj48")
 
 [node name="BG1" type="Parallax2D" parent="Background"]
 repeat_size = Vector2(1024, 0)
 repeat_times = 7
 
 [node name="Sprite2D" type="Sprite2D" parent="Background/BG1"]
-texture = ExtResource("5_ildn5")
+texture = ExtResource("5_lhhng")
 
-[node name="Grass" type="Parallax2D" parent="Background"]
+[node name="Floor" type="Parallax2D" parent="Background"]
 repeat_size = Vector2(1024, 0)
 repeat_times = 7
 
-[node name="Sprite2D" type="Sprite2D" parent="Background/Grass"]
-texture = ExtResource("6_4nxcm")
+[node name="Sprite2D" type="Sprite2D" parent="Background/Floor"]
+texture = ExtResource("6_57kyt")
 
 [node name="Foreground" type="Parallax2D" parent="Background"]
 repeat_size = Vector2(1024, 0)
 repeat_times = 7
 
 [node name="Sprite2D" type="Sprite2D" parent="Background/Foreground"]
-texture = ExtResource("7_vmsjl")
+texture = ExtResource("7_v8uqo")
 
 [node name="EndlessGround" type="Parallax2D" parent="Background"]
-repeat_size = Vector2(1020, 0)
+scroll_scale = Vector2(0.1, 1)
+repeat_size = Vector2(1024, 0)
 repeat_times = 7
 
 [node name="Sprite2D" type="Sprite2D" parent="Background/EndlessGround"]
-position = Vector2(1.50001, 885)
-scale = Vector2(15.9844, 19.6875)
-texture = SubResource("GradientTexture2D_2do5g")
+position = Vector2(-9, 1244)
+texture = SubResource("GradientTexture2D_gwuf7")
 
 [node name="Particles" type="Parallax2D" parent="Background"]
-scroll_offset = Vector2(0, -5)
 repeat_size = Vector2(1200, 0)
 repeat_times = 4
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="Background/Particles"]
-position = Vector2(62, -2926)
+position = Vector2(6, -2919.49)
 amount = 48
 lifetime = 1.6
 texture = SubResource("GradientTexture2D_du4d6")
@@ -126,7 +130,7 @@ angle_max = 10.0
 position = Vector2(215, 111)
 
 [node name="Building" parent="." instance=ExtResource("2_6ic3h")]
-position = Vector2(1, 658)
+position = Vector2(143, -29)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -146,5 +150,32 @@ offset_top = -40.5
 offset_right = 132.5
 offset_bottom = 40.5
 
+[node name="FinishStageButton" type="Button" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -85.0
+offset_top = -31.0
+grow_horizontal = 0
+grow_vertical = 0
+focus_mode = 0
+text = "NEXT DAY"
+
+[node name="CashLabel" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 23.0
+grow_horizontal = 0
+
+[node name="HarvestableBuilding" parent="." instance=ExtResource("8_d4048")]
+position = Vector2(521, -29)
+
 [connection signal="query_add_floor" from="Building" to="." method="_on_building_query_add_floor"]
 [connection signal="confirm_add_floor" from="CanvasLayer/Control/AddFloorContainer" to="Building" method="add_floor_by_coord"]
+[connection signal="pressed" from="CanvasLayer/Control/FinishStageButton" to="." method="_on_finish_stage_button_pressed"]
