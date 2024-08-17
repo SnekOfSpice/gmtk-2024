@@ -1,5 +1,6 @@
-[gd_scene load_steps=113 format=3 uid="uid://clhuj4x4c7f56"]
+[gd_scene load_steps=114 format=3 uid="uid://clhuj4x4c7f56"]
 
+[ext_resource type="Script" path="res://sprites/people/person.gd" id="1_drk1l"]
 [ext_resource type="Texture2D" uid="uid://bk6ytqdhnh5r0" path="res://sprites/people/animations/idle/sheet_PersonIdle.png" id="1_kuiri"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d5l2h"]
@@ -836,6 +837,7 @@ animations = [{
 }]
 
 [node name="Person" type="Node2D"]
+script = ExtResource("1_drk1l")
 
 [node name="Skin" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_cdr15")
@@ -852,3 +854,6 @@ animation = &"idle_body1"
 [node name="Legs" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_cdr15")
 animation = &"idle_legs1"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(4.73, 4.73)
