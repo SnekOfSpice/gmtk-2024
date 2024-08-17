@@ -10,6 +10,8 @@ script = ExtResource("1_p5hh2")
 
 [node name="Parallax2D" type="Parallax2D" parent="."]
 
+[node name="test" type="Node2D" parent="Parallax2D"]
+
 [node name="GameCamera" parent="." instance=ExtResource("2_8dd5b")]
 position = Vector2(215, 111)
 
