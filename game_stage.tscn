@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bk3nrnqrwiuyn"]
+[gd_scene load_steps=3 format=3 uid="uid://bk3nrnqrwiuyn"]
 
 [ext_resource type="Texture2D" uid="uid://dbm5s1ys7j1w2" path="res://icon.svg" id="1_63n36"]
+[ext_resource type="PackedScene" uid="uid://dq2meide5oo8r" path="res://src/building/building.tscn" id="2_6ic3h"]
 
 [node name="Node3D" type="Node2D"]
 
@@ -10,4 +11,9 @@
 texture = ExtResource("1_63n36")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(518, 363)
+zoom = Vector2(0.595, 0.595)
 position_smoothing_enabled = true
+
+[node name="Building" parent="." instance=ExtResource("2_6ic3h")]
+position = Vector2(207, 373)
