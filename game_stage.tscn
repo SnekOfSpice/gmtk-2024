@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bk3nrnqrwiuyn"]
+[gd_scene load_steps=4 format=3 uid="uid://bk3nrnqrwiuyn"]
 
 [ext_resource type="Texture2D" uid="uid://dbm5s1ys7j1w2" path="res://icon.svg" id="1_63n36"]
 [ext_resource type="PackedScene" uid="uid://dq2meide5oo8r" path="res://src/building/building.tscn" id="2_6ic3h"]
+[ext_resource type="PackedScene" uid="uid://c0c2agsmpxh27" path="res://src/camera/game_camera.tscn" id="2_8dd5b"]
 
 [node name="Node3D" type="Node2D"]
 
@@ -10,10 +11,8 @@
 [node name="Sprite2D" type="Sprite2D" parent="Parallax2D"]
 texture = ExtResource("1_63n36")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(518, 363)
-zoom = Vector2(0.595, 0.595)
-position_smoothing_enabled = true
+[node name="GameCamera" parent="." instance=ExtResource("2_8dd5b")]
+position = Vector2(215, 111)
 
 [node name="Building" parent="." instance=ExtResource("2_6ic3h")]
 position = Vector2(207, 373)

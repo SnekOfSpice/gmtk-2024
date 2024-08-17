@@ -8,3 +8,9 @@ const FLOOR_UNIT_WIDTH := 32
 const FLOOR_UNIT_HEIGHT := 72
 const BUILDING_ORIGIN_POS := Vector2(0, -FLOOR_UNIT_HEIGHT)
 const BUILDING_ORIGIN_COORD := Vector2.ZERO
+
+
+const ZOOM_MIN := 0.25
+const ZOOM_MAX := 4.0
+const ZOOM_STEP := 0.025
+const CAMERA_MOVE_STEP := 300
