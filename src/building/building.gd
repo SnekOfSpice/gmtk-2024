@@ -37,12 +37,54 @@ func _process(delta: float) -> void:
 	
 	var button_coord = add_unit_button.get_current_coord()
 	add_unit_button.visible = can_coord_be_added(button_coord)
-	
+
+
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 			print(get_flats())
+
+func get_household_res_from_enum(value:CONST.HouseholdArchetype):
+	match value:
+		CONST.HouseholdArchetype.StudentFlatShare:
+			return student_flat_share
+		CONST.HouseholdArchetype.Apprentice:
+			return apprentice
+		CONST.HouseholdArchetype.OrdinaryFamily:
+			return ordinary_family
+		CONST.HouseholdArchetype.SingleParent:
+			return single_parent
+		CONST.HouseholdArchetype.YoungCouple:
+			return young_couple
+		CONST.HouseholdArchetype.Workaholic:
+			return workaholic
+		CONST.HouseholdArchetype.Polycule:
+			return polycule
+		CONST.HouseholdArchetype.ElderlyCouple:
+			return elderly_couple
+		CONST.HouseholdArchetype.BigFamily:
+			return big_family
+		CONST.HouseholdArchetype.Widow:
+			return widow
+		CONST.HouseholdArchetype.CEO:
+			return ceo
+		CONST.HouseholdArchetype.InfluencerCouple:
+			return influencer_couple
+		CONST.HouseholdArchetype.Kevin:
+			return kevin
+		CONST.HouseholdArchetype.DrugDealer:
+			return drug_dealer
+		CONST.HouseholdArchetype.MarathonCouple:
+			return marathon_couple
+
+func get_random_household() -> int:
+	var pool := []
+	for i in CONST.HouseholdArchetype.size():
+		var res = get_household_res_from_enum(i)
+		for j in res.popularity:
+			pool.append(i)
+	return pool.pick_random()
 
 func get_flats() -> Array:
 	var flats := []

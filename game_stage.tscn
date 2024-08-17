@@ -124,6 +124,15 @@ grow_vertical = 0
 focus_mode = 0
 text = "NEXT DAY"
 
+[node name="CashLabel" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 23.0
+grow_horizontal = 0
+
 [node name="HarvestableBuilding" parent="." instance=ExtResource("8_d4048")]
 position = Vector2(521, -29)
 

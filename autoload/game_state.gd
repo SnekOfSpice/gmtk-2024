@@ -2,7 +2,8 @@ extends Node
 
 enum State {
 	Managing,
-	Building
+	Building,
+	PickingTenants
 }
 
 signal state_changed(new_state:State)
@@ -10,6 +11,7 @@ signal state_changed(new_state:State)
 var state := State.Managing
 var building:Building
 
+var camera:Camera2D
 var drag_target : FloorUnit
 var dragged_room : Room
 

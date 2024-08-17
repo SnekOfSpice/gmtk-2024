@@ -6,6 +6,7 @@ script/source = "extends Resource
 enum Inhabitant{Adult,Child}
 
 @export var household_name: String
+@export var archetype: CONST.HouseholdArchetype
 @export var popularity: int
 @export var max_rent_range:Vector2
 @export var inhabitants:Array[Inhabitant]
@@ -19,6 +20,7 @@ enum Inhabitant{Adult,Child}
 # your resource via the inspector.
 func _init(
 	p_household_name=\"\",
+	p_archetype = 1,
 	p_popularity = 1,
 	p_max_rent_range = Vector2.ZERO,
 	p_inhabitants = [],
@@ -28,6 +30,7 @@ func _init(
 	p_sad_neighbors = [],
 	):
 	household_name = p_household_name
+	archetype = p_archetype
 	popularity = p_popularity
 	max_rent_range = p_max_rent_range
 	inhabitants = p_inhabitants
@@ -40,6 +43,7 @@ func _init(
 [resource]
 script = SubResource("GDScript_ey6k7")
 household_name = "Student Flat Share"
+archetype = 0
 popularity = 3
 max_rent_range = Vector2(800, 1200)
 inhabitants = Array[int]([0, 0, 0])

@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1723915552
+::res://::1723916773
 game_stage.tscn::PackedScene::3146932084912008397::1723915282::0::1::::<><>::res://src/game_stage.gd<>uid://dq2meide5oo8r::::res://src/building/building.tscn<>uid://c0c2agsmpxh27::::res://src/camera/game_camera.tscn<>uid://bp628uc7bax6a::::res://sprites/background/Sky.png<>uid://ol513ocliyg8::::res://sprites/background/Background.png<>uid://1tnfphburlo7::::res://src/ui/add_floor_container.tscn<>uid://c3rwsfkemts2b::::res://sprites/background/Ground.png<>uid://dk1v0umuvbrtu::::res://src/building/harvestable_building.tscn
 icon.svg::CompressedTexture2D::7256078485382729591::1723541076::1723876970::1::::<><>::
 ::res://autoload/::1723915520
@@ -18,9 +18,9 @@ Ground.png::CompressedTexture2D::6774591607464616503::1723900428::1723900439::1:
 Sky.png::CompressedTexture2D::3504948393654905226::1723900428::1723900439::1::::<><>::
 ::res://src/::1723914036
 game_stage.gd::GDScript::-1::1723912194::0::1::::<>Node2D<>::
-::res://src/building/::1723915540
-building.gd::GDScript::-1::1723914744::0::1::::Building<>Node2D<>::
-building.tscn::PackedScene::8338757920779866171::1723915540::0::1::::<><>::res://src/building/building.gd<>uid://c6qs0eolhnulb::::res://src/floor/floor.tscn<>uid://cfmp8yur4aiar::::res://src/floor/add_unit_button.tscn
+::res://src/building/::1723916765
+building.gd::GDScript::-1::1723916765::0::1::::Building<>Node2D<>::
+building.tscn::PackedScene::8338757920779866171::1723916765::0::1::::<><>::res://src/building/building.gd<>uid://c6qs0eolhnulb::::res://src/floor/floor.tscn<>uid://cfmp8yur4aiar::::res://src/floor/add_unit_button.tscn
 harvestable_building.gd::GDScript::-1::1723902854::0::1::::<>Node2D<>::
 harvestable_building.tscn::PackedScene::7916145080702386358::1723906674::0::1::::<><>::res://src/building/harvestable_building.gd
 ::res://src/building/sprites/::1723899529
@@ -82,9 +82,9 @@ office.png::CompressedTexture2D::7244993536403398571::1723899781::1723899788::1:
 pleasure.png::CompressedTexture2D::433824482309361692::1723915492::1723915493::1::::<><>::
 selector.png::CompressedTexture2D::5001541334490286806::1723905034::1723905036::1::::<><>::
 storeroom.png::CompressedTexture2D::4965528570597435747::1723899756::1723899788::1::::<><>::
-::res://src/household/::1723915282
+::res://src/household/::1723916523
 household.gd::GDScript::-1::1723914011::0::1::::<>Node2D<>::
-household.tres::Resource::7243973657013511574::1723915191::0::1::::<><>::
+household.tres::Resource::7243973657013511574::1723916523::0::1::::<><>::
 household.tscn::PackedScene::7156775179109999101::1723915282::0::1::::<><>::res://src/household/household.gd<>uid://dbhbgncidxea5::::res://src/household/household.tres
 ::res://src/rooms/::1723915540
 front_wall.png::CompressedTexture2D::8254642600297411022::1723878348::1723880467::1::::<><>::

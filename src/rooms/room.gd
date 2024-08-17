@@ -12,6 +12,14 @@ const sprite_root := "res://src/rooms/room_sprites/spr_room-"
 
 @export var room_type: CONST.RoomType
 
+func _ready() -> void:
+	GameState.state_changed.connect(on_state_changed)
+	$TextureButton.visible = false
+
+func on_state_changed(new_state:GameState.State):
+	$TextureButton.visible = (not player_owned) and new_state == GameState.State.Building
+
+
 func set_room_type(value):
 	room_type = value
 	match value:
@@ -114,7 +122,7 @@ func _on_texture_button_button_down() -> void:
 	
 func set_player_owned(value:bool):
 	player_owned = value
-	$TextureButton.visible = not player_owned
+	$TextureButton.visible = (not player_owned) and GameState.is_state(GameState.State.Building)
 
 func _on_texture_button_button_up() -> void:
 	selected = false
